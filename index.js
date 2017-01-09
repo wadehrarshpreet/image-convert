@@ -19,6 +19,12 @@ function GetFilename(url) {
    }
    return "";
 }
+function GetFileExtension(url){
+  if(url){
+    let index = url.lastIndexOf(".")+1;
+    return url.substr(index);
+  }
+}
 function dataURLtoFile(dataurl, filename,output_format) {
     var file = new File({
       name: filename+"."+output_format,   // required
@@ -31,25 +37,31 @@ module.exports = {
   fromURL : (options, callback)=>{
     let {url, quality,output_format,size} = options;
     if(url == undefined)
-      callback("No URL FOUND",null);
+      callback("No URL FOUND",null,null);
     if(quality == undefined)
       quality = 100
     if(output_format == undefined)
       output_format = "jpg"
     let filename = GetFilename(url);
-    try{
-      request.get(url, function (err, res, body) {
-          var img = image(body);
-          var buffer;
-          if(size ==undefined || size == "original")//original size
-            buffer = image(body).encode(output_format,{quality:quality});
-          else
-            buffer = image(body).size(size).encode(output_format,{quality:quality});
-            callback(null,buffer,dataURLtoFile(buffer,filename,output_format));
-      });
+    let extension = GetFileExtension(url);
+    if(extension == "jpg" || extension == "gif" || extension == "png"){
+      try{
+        request.get(url, function (err, res, body) {
+            var img = image(body);
+            var buffer;
+            if(size ==undefined || size == "original")//original size
+              buffer = image(body).encode(output_format,{quality:quality});
+            else
+              buffer = image(body).size(size).encode(output_format,{quality:quality});
+              callback(null,buffer,dataURLtoFile(buffer,filename,output_format));
+        });
+      }
+      catch(e){
+        callback(e,null,null);
+      }
     }
-    catch(e){
-      callback(e.message,null);
+    else{
+      callback(new Error("Unknown File Format"),null,null)
     }
   }
 }

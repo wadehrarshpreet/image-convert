@@ -2,6 +2,8 @@
 
 convert image to different format like gif2jpg jpg2png also manage the quality & size
 
+supported extensions jpg, png and gif
+
 	npm install image-convert --save
 
 
@@ -13,7 +15,7 @@ imgConvert({
 	url:<url>,
 	quality: <quality[0..100]>,
 	output_format:<output_format>,
-	size: <size{integer}>},function(err,buffer,file){//buffer=> base64 encode, file=> file object 
+	size: <size{integer}>},function(err,buffer,file){//buffer=> base64 encode, file=> file object
 	if(!err)
 		console.log(res);//img buffer
 })

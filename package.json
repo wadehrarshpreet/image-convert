@@ -1,6 +1,6 @@
 {
   "name": "image-convert",
-  "version": "0.1.32",
+  "version": "0.1.321",
   "description": "convert image to different format like gif2jpg jpg2png also manage the quality & size",
   "main": "index.js",
   "scripts": {
