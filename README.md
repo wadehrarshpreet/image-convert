@@ -4,6 +4,7 @@ convert image to different format like gif2jpg jpg2png also manage the quality &
 
 supported extensions jpg, png and gif
 
+
 	npm install image-convert --save
 
 
@@ -40,6 +41,8 @@ imgConvert({
 })
 
 ```
+
+jpg2gif and png2gif not available
 
 ## License
 

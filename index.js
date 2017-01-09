@@ -44,9 +44,13 @@ module.exports = {
       output_format = "jpg"
     let filename = GetFilename(url);
     let extension = GetFileExtension(url);
-    if(extension == "jpg" || extension == "gif" || extension == "png"){
+    if((extension == "jpg" || extension == "gif" || extension == "png") && (output_format == "jpg" || output_format == "png")){
       try{
         request.get(url, function (err, res, body) {
+          if(res.statusCode != 200){
+            callback(new Error("Invalid URL"),null,null)
+            return;
+          }
             var img = image(body);
             var buffer;
             if(size ==undefined || size == "original")//original size
