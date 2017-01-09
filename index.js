@@ -7,12 +7,13 @@ const request = require('request').defaults({ encoding: null });
 module.exports = {
   fromURL : ()=>{
     let quality = 100,output_format="jpg",size=undefined;
+    let callback = arguments[arguments.length-1];
     let max_allowed_parameters = 5;
     let min_allowed_parameters = 2;
     if(arguments.length>max_allowed_parameters || arguments.length < min_allowed_parameters)
       arguments[arguments.length-1](new Error("Parameters Mismatch"),null);
-    else if(typeof quality[0] == "function")
-      arguments[arguments.length-1](new Error("Parameters Mismatch"),null);
+    else if(typeof arguments[0] == "function")
+      arguments[arguments.length-1](new Error("URL REQUIRED"),null);
     let img = arguments[0];
     if(typeof quality[1] != "function")
       quality = arguments[1];
