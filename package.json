@@ -1,7 +1,7 @@
 {
   "name": "image-convert",
-  "version": "0.1.304",
-  "description": "convert image and return static jpg and can resize from URL",
+  "version": "0.1.32",
+  "description": "convert image to different format like gif2jpg jpg2png also manage the quality & size",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/wadehrarshpreet/image-convert#readme",
   "dependencies": {
+    "file-api": "^0.10.4",
     "images": "^3.0.0",
     "request": "^2.79.0"
   }
