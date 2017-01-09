@@ -1,8 +1,8 @@
-# gif2jpg
+# image-convert
 
 Convert Gif to Static JPG
 
-	npm install gif2jpg
+	npm install image-convert
 
 
 ## Usage
