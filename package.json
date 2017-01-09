@@ -1,6 +1,6 @@
 {
   "name": "image-convert",
-  "version": "0.1.3",
+  "version": "0.1.304",
   "description": "convert image and return static jpg and can resize from URL",
   "main": "index.js",
   "scripts": {
