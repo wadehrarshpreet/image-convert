@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wadehrarshpreet/gif2jpg.git"
+    "url": "git+https://github.com/wadehrarshpreet/image-convert.git"
   },
   "keywords": [
     "gif2jpg",
@@ -18,9 +18,9 @@
   "author": "Arshpreet Wadehra",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wadehrarshpreet/gif2jpg/issues"
+    "url": "https://github.com/wadehrarshpreet/image-convert/issues"
   },
-  "homepage": "https://github.com/wadehrarshpreet/gif2jpg#readme",
+  "homepage": "https://github.com/wadehrarshpreet/image-convert#readme",
   "dependencies": {
     "images": "^3.0.0",
     "request": "^2.79.0"
