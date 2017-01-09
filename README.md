@@ -9,7 +9,7 @@ Convert Gif to Static JPG
 
 ``` js
 let imgConvert = require('image-convert').fromURL;
-imgConvert(<url>,<size>,function(err,res){
+imgConvert(<url>,<quality[0..100]>,<output_format>,<size{integer}>,function(err,res){
 	if(!err)
 		console.log(res);//img buffer
 })
