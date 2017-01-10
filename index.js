@@ -1,9 +1,9 @@
 // Copyright 2016 Arshpreet Wadehra
 //
 //
-const image = require('images');
-const request = require('request').defaults({ encoding: null });
-const FileAPI = require('file-api')
+var image = require('images');
+var request = require('request').defaults({ encoding: null });
+var FileAPI = require('file-api')
   , File = FileAPI.File
   , FileList = FileAPI.FileList
   , FileReader = FileAPI.FileReader
@@ -21,7 +21,7 @@ function GetFilename(url) {
 }
 function GetFileExtension(url){
   if(url){
-    let index = url.lastIndexOf(".")+1;
+    var index = url.lastIndexOf(".")+1;
     return url.substr(index);
   }
 }
@@ -34,19 +34,26 @@ function dataURLtoFile(dataurl, filename,output_format) {
     return file;
 }
 module.exports = {
-  fromURL : (options, callback)=>{
-    let {url, quality,output_format,size} = options;
+  fromURL : function(options, callback){
+    var url = options.url;
+    var quality = options.quality;
+    var output_format = options.output_format;
+    var size = options.size;
     if(url == undefined)
       callback("No URL FOUND",null,null);
     if(quality == undefined)
       quality = 100
     if(output_format == undefined)
       output_format = "jpg"
-    let filename = GetFilename(url);
-    let extension = GetFileExtension(url);
+    var filename = GetFilename(url);
+    var extension = GetFileExtension(url);
     if((extension == "jpg" || extension == "gif" || extension == "png") && (output_format == "jpg" || output_format == "png")){
       try{
         request.get(url, function (err, res, body) {
+          if(!res){
+            callback(new Error("Network Error"),null,null)
+            return;
+          }
           if(res.statusCode != 200){
             callback(new Error("Invalid URL"),null,null)
             return;
