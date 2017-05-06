@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
-    "image-convert": "^0.1.323"
+    "image-convert": "^0.1.33"
   }
 }
